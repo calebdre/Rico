@@ -1,0 +1,4 @@
+nltk
+requests
+textract
+pypdf2
