@@ -40,6 +40,9 @@ def parse():
     stripped_job_description = [word.lower().strip() for word in job_description.split() if word not in stop_words]
     stripped_resume = [word.lower().strip() for word in resume.split() if word not in stop_words]
 
+    handle_regex = re.search("[\s|^]@\w+", resume)
+    handle = handle_regex.group(1)
+
     matches = []
 
     for i, word in enumerate(stripped_job_description):

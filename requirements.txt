@@ -3,3 +3,4 @@ requests
 textract
 pypdf2
 pyquery
+simplejson
