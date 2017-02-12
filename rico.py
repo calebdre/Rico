@@ -8,5 +8,5 @@ def score(tags={'listing_tags':[], 'candidate_tags':[]}, ghusername='arshbot', n
 	s = so_score.final_score(name, location)
 	return j+g+s
 
-tags = {'listing_tags':['Swift', 'Python', 'Java'], 'candidate_tags':['Swift', 'Python', 'perl', 'shot']}
-print(score(tags, 'youngvz', 'Viraj Shaw', 'Atlanta, GA, United States'))
+#tags = {'listing_tags':['Swift', 'Python', 'Java'], 'candidate_tags':['Swift', 'Python', 'perl', 'shot']}
+#print(score(tags, 'youngvz', 'Viraj Shaw', 'Atlanta, GA, United States'))
