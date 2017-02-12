@@ -44,3 +44,4 @@ print list_of_repos
 get_num_of_github_commits()
 get_num_of_stars_and_forks()
 print 'fork_score: '+str(fork_score)+', star_score: '+str(star_score)+', comment_score: '+str(commitcount)
+git_info = {'fork_score': fork_score, 'star_score': star_score, 'comment_score':comment_score}
