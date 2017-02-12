@@ -2,11 +2,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 list_of_repos = []
-fork_score, star_score, commit_score = 0
+fork_score, star_score, commit_score = (0,)*3
 
 def final_score(username='arshbot'):
     raw_score = compile_raw_gitscore(username)
-    f_commit_score, f_star_score, f_fork_score = 0
+    f_commit_score, f_star_score, f_fork_score = (0,)*3
     
     if raw_score['commit_score']<100:
         f_commit_score = 10
