@@ -9,29 +9,29 @@ def final_score(username='arshbot'):
     f_commit_score, f_star_score, f_fork_score = (0,)*3
     
     if raw_score['commit_score']<100:
-        f_commit_score = 10
+        f_commit_score = 8.66
     elif raw_score['commit_score']<250:
-        f_commit_score = 20
+        f_commit_score = 8.66*2
     else:
-        f_commit_score = 30
+        f_commit_score = 26
 
     if raw_score['fork_score']<10:
-        f_fork_score = 2
+        f_fork_score = 1.75
     elif raw_score['fork_score']<30:
-        f_fork_score = 5
+        f_fork_score = 1.75*2
     elif raw_score['fork_score']<60:
-        f_fork_score = 8
+        f_fork_score = 1.75*3
     elif raw_score['fork_score']>100:
-        f_fork_score = 10
+        f_fork_score = 1.75*4
 
     if raw_score['star_score']<15:
-        f_star_score = 2
+        f_star_score = 1.75
     elif raw_score['star_score']<30:
-        f_star_score = 5
+        f_star_score = 1.75*2
     elif raw_score['star_score']<60:
-        f_star_score = 8
+        f_star_score = 1.75*3
     elif raw_score['star_score']>150:
-        f_star_score = 10
+        f_star_score = 1.75*4
 
     return f_star_score + f_fork_score + f_commit_score
 
