@@ -4,3 +4,4 @@ textract
 pypdf2
 pyquery
 simplejson
+python-firebase

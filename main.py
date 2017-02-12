@@ -5,6 +5,8 @@ import os
 import re
 import devpost
 import score 
+import rico
+import fb
 import zipfile
 
 app = Flask(__name__)
@@ -18,6 +20,12 @@ def index():
 def devpost_func():
     return to_json(devpost.get_tags("caleb_dre"))
     
+
+@app.route("/register-github", methods=["POST"])
+def register_github():
+    username = request.form['username']
+    fb.register_user(username)
+    return success_message("registered yay")
 
 @app.route("/score", methods=["POST"])
 def score_route():
@@ -38,20 +46,11 @@ def score_route():
         for f in os.listdir(newpath):
             fname = cwd + "/zip/" + f
             if len(fname.split(".")) > 1:
-                scores.append(assemble_resume_score(job_description, fname))
+                scores.append(score.score_resume(job_description, fname))
     else:
-        scores = assemble_resume_score(job_description, path)
-    
+        scores = score.score_resume(job_description, path)
+
     return to_json(scores)
-
-def assemble_resume_score(job_description, path, obj = {}):
-    resume_score, matches = score.score_resume(job_description, path)
-    obj["resume"] = {
-        "score": resume_score,
-        "keywords": ",".join(matches)
-    }
-
-    return obj
 
 if __name__ == "__main__":
     app.run(debug=True)
