@@ -4,7 +4,7 @@ import requests
 questionsDictionary = {}
 answersDictionary = {}
 
-def score(name, location):
+def final_score(name, location):
     rp = reputation_score(name, location)
     f_score = 0
     if rp > 25:
@@ -92,4 +92,4 @@ def printDictionary(dictionary):
     for question in dictionary:
         print dictionary[question]
 
-score("Harsha Goli", "Atlanta, GA, United States")
+# score("Harsha Goli", "Atlanta, GA, United States")
