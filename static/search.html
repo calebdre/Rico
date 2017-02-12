@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="assets/css/search.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<title>Search</title>
 </head>
 <body>
@@ -9,16 +10,16 @@
 	<div class="subtitle">Candidate Selection Made Easy</div>
 	<div class="logo"></div>
 	<div class="input_form">
-		<form action="results.html" method="post" enctype="multipart/form-data">
+		<form action="" method="post" enctype="multipart/form-data">
 			<textarea class="input_text" type="textarea" name="job_description" placeholder="Paste job description here"></textarea>
 			
-			<input class="input_file" type="file" name="file" id="resume">
+			<input class="input_file" type="file" name="file" id="file">
 
 			
 				<div class="resume_container">
-					<div class="scale_container">Scale<input type="text" name="scale" id="scale" placeholder="100 = Intern, 200 = Senior"></div>
+					<!-- <div class="scale_container">Scale<input type="text" name="scale" id="scale" placeholder="100 = Intern, 200 = Senior"></div> -->
 
-					<label for="resume">
+					<label for="file">
 						<div class="input_resume">Browse</div>
 					</label>
 				</div>
@@ -33,5 +34,6 @@
 			<!-- end submit input -->
 		</form>
 	</div>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>
