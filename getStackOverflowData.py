@@ -55,8 +55,9 @@ def getUserTimeline(userId):
           
         print "Question "
         print i['title']
-        if "detail" in i:
-          print i['detail']
+        print i['post_id']
+        # if "detail" in i:
+        #   print i['detail']
         print ""
 
 
@@ -64,8 +65,9 @@ def getUserTimeline(userId):
 
         print "Answer" 
         print i['title']
-        if "detail" in i:
-          print i['detail']
+        print i['post_id']
+        # if "detail" in i:
+        #   print i['detail']
         print ""
 
 
