@@ -50,8 +50,7 @@ def getUserTimeline(userId):
     items = data['items']
 
     for i in items:
-              
-      if "post_type" in i and i['post_type'] == "question":
+        if "post_type" in i and i['post_type'] == "question":
           
         print "Question "
         print i['title']
@@ -61,8 +60,7 @@ def getUserTimeline(userId):
         print ""
 
 
-      elif "post_type" in i and i['post_type'] == "answer":
-
+    elif "post_type" in i and i['post_type'] == "answer":
         print "Answer" 
         print i['title']
         print i['post_id']
