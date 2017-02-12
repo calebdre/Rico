@@ -196,4 +196,43 @@ th {
     color: white;
     border-color: #FF691E; }
 
+#details_popup {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  width: 70%;
+  height: 400px;
+  display: none;
+  opacity: 0;
+  background-color: white;
+  z-index: 999999;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  #details_popup > #x_button {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    right: 10px;
+    margin-top: 10px;
+    cursor: pointer; }
+    #details_popup > #x_button > .element {
+      width: 30px;
+      height: 4px;
+      top: 20px;
+      background-color: black;
+      position: fixed;
+      cursor: pointer; }
+      #details_popup > #x_button > .element.e1 {
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg); }
+      #details_popup > #x_button > .element.e2 {
+        transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -o-transform: rotate(135deg); }
+
 /*# sourceMappingURL=results.css.map */

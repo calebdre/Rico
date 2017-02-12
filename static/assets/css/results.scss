@@ -117,3 +117,58 @@ th{
 		border-color: $color-orange;
 	}
 }
+
+
+#details_popup{
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	position: fixed;
+	width: 70%;
+	height: 400px;
+	display: none;
+	opacity: 0;
+	background-color: white;
+	z-index: 999999;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	
+	>#x_button{
+
+
+		//{ ** ATTRIBUTES
+			width: 30px;
+			height: 30px;
+			position: fixed;
+			right: 10px;
+			margin-top: 10px;
+			cursor: pointer;
+		//} ** END ATTRIBUTES
+		
+		>.element{
+
+			//{ ** ATTRIBUTES
+				width: 30px;
+				height: 4px;
+				top: 20px;
+				background-color: black;
+				position: fixed;
+				cursor: pointer;
+			//} ** END ATTRIBUTES
+			
+			&.e1{
+
+				//{ ** INCLUDES
+					@include rotate(45);
+				//} ** END INCLUDES
+				
+			}
+			&.e2{
+
+				//{ ** INCLUDES
+					@include rotate(135);
+				//} ** END INCLUDES
+				
+			}
+		}
+	}
+}
