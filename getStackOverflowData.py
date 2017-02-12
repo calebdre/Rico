@@ -1,6 +1,9 @@
-import requests
 import simplejson as json
+import requests
 
+
+questionsDictionary = {}
+answersDictionary = {}
 
 def getUserData(name, location):
     
@@ -14,21 +17,16 @@ def getUserData(name, location):
     items = data['items']
     
     for i in items:
-      
-      if name == i['display_name']:
-        if "location" in i and i['location'] == location:
-
-          reputation = i['reputation']
-          user_id =    i['user_id']
-          
-          print ""
-          print name
-          print user_id
-          print reputation
-
-          getUserTimeline(user_id)
-
-
+        if name == i['display_name']:
+            if "location" in i and i['location'] == location:
+                reputation = i['reputation']
+                user_id = i['user_id']
+                print ''
+                print name
+                print user_id
+                print reputation
+            getUserTimeline(user_id)
+    
 def formatName(name):
     urlString = "&inname="
     array = name.split()
@@ -37,7 +35,6 @@ def formatName(name):
 
 
 def getUserTimeline(userId):
-    
     userId = str(userId)
     baseUrl = "https://api.stackexchange.com/2.2/users/"
     
@@ -51,29 +48,23 @@ def getUserTimeline(userId):
 
     for i in items:
         if "post_type" in i and i['post_type'] == "question":
-          
-        print "Question "
-        print i['title']
-        print i['post_id']
-        # if "detail" in i:
-        #   print i['detail']
-        print ""
+            postid = i['post_id']
+            questionsDictionary[postid] = i['title']
+
+        elif "post_type" in i and i['post_type'] == "answer":
+            postid = i['post_id']
+            answersDictionary[postid] = i['title']
+    printDictionary(questionsDictionary)
+    printDictionary(answersDictionary)
 
 
-    elif "post_type" in i and i['post_type'] == "answer":
-        print "Answer" 
-        print i['title']
-        print i['post_id']
-        # if "detail" in i:
-        #   print i['detail']
-        print ""
-
-
-
-    
+def printDictionary(dictionary):
+    for question in dictionary:
+        print dictionary[question]
 
 def main():
- getUserData("Caleb Lewis", "Atlanta, GA, United States")
+    getUserData("Caleb Lewis", "Atlanta, GA, United States")
+
 
 
 main()
