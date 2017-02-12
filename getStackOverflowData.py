@@ -1,7 +1,6 @@
 import simplejson as json
 import requests
 
-
 questionsDictionary = {}
 answersDictionary = {}
 
