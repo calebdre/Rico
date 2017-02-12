@@ -3,7 +3,10 @@ from datetime import datetime
 from flask import Response
 
 def respond_json(data):
-    return Response(data, status=200, mimetype='application/json')
+    resp = Response(data, status=200, mimetype='application/json')
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    print(resp.headers)
+    return resp
 
 def to_json(query):
     return respond_json(dumps((query)))

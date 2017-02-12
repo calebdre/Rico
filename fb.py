@@ -9,8 +9,8 @@ firebase = firebase.FirebaseApplication('https://rico-8a81e.firebaseio.com/', No
 def upload_resume(tags):
 	firebase.post("/resumes", tags)
 
-def register_user(username):
-	firebase.post("/users", username)
+def register_user(username, location):
+	firebase.post("/users", {"username": username, "location": location})
 
 def usernames():
 	return firebase.get("/users", None)
