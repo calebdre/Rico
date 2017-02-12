@@ -43,7 +43,11 @@ def getUserData(name, location):
     baseUrl += formatName(name);
     r = requests.get(baseUrl)
     data = r.json()
-    items = data['items']
+
+    if 'items' in data:
+        items = data['items']
+    else:
+        return 200
     
     for i in items:
         if name == i['display_name']:
