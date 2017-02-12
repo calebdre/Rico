@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700");
+* {
+  font-family: "Roboto", sans-serif; }
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden; }
+
+.title {
+  height: 100px;
+  margin-top: 20px;
+  line-height: 100px;
+  font-size: 100px;
+  vertical-align: middle;
+  padding-left: 30px;
+  font-weight: 400;
+  color: #FF691E;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+  cursor: default; }
+
+.subtitle {
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  vertical-align: middle;
+  padding-left: 36px;
+  font-weight: 400;
+  color: #10705C;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+  cursor: default; }
+
+.container {
+  width: 70%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  margin: 0 auto; }
+
+input[type=file] {
+  display: none; }
+
+input[type=submit] {
+  display: none; }
+
+body {
+  background-color: white !important;
+  height: calc(100vh - 40px); }
+
+.logo {
+  background-image: url("../../assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 50%;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  height: 40%;
+  bottom: 0;
+  position: relative;
+  float: left; }
+
+div.input_form {
+  display: block;
+  position: relative;
+  clear: left;
+  height: auto;
+  width: 50%;
+  left: 50%;
+  top: 4%;
+  transform: translateX(-50%);
+  float: left;
+  margin: 0 auto;
+  border-radius: 5px; }
+  div.input_form > * {
+    position: relative;
+    float: left;
+    clear: both; }
+  div.input_form > form {
+    width: 100%; }
+    div.input_form > form > textarea {
+      position: relative;
+      float: left;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(90% - 40px);
+      height: 110px;
+      border: none;
+      margin-bottom: 40px;
+      font-size: 16px;
+      padding: 20px;
+      resize: none;
+      font-weight: 300;
+      color: white;
+      border-bottom: solid #10705C 2px;
+      outline: none;
+      text-decoration: none;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent; }
+      div.input_form > form > textarea:visted {
+        outline: none;
+        text-decoration: none;
+        color: inherit;
+        -webkit-tap-highlight-color: transparent; }
+    div.input_form > form > .resume_container {
+      width: 90%;
+      position: relative;
+      float: left;
+      clear: both;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom: solid #10705C 2px;
+      margin-bottom: 80px; }
+      div.input_form > form > .resume_container > .scale_container {
+        position: relative;
+        float: left;
+        clear: left;
+        font-size: 20px;
+        color: #10705C;
+        -webkit-user-select: none;
+        /* Chrome/Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* IE10+ */
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+        cursor: default;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease; }
+        div.input_form > form > .resume_container > .scale_container > #scale {
+          width: 140px;
+          font-size: 12px;
+          line-height: 24px;
+          vertical-align: middle;
+          border: none;
+          margin-left: 10px;
+          outline: none;
+          text-decoration: none;
+          color: inherit;
+          -webkit-tap-highlight-color: transparent;
+          cursor: text;
+          color: #FF691E; }
+          div.input_form > form > .resume_container > .scale_container > #scale:visted {
+            outline: none;
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent; }
+      div.input_form > form > .resume_container > label > .input_resume {
+        float: right;
+        position: relative;
+        color: #10705C;
+        font-size: 20px;
+        font-weight: 400;
+        width: 70px;
+        padding: 0 5px;
+        margin-bottom: 12px;
+        -webkit-user-select: none;
+        /* Chrome/Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* IE10+ */
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+        cursor: default;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        cursor: pointer; }
+        div.input_form > form > .resume_container > label > .input_resume:hover {
+          border-left: solid 4px;
+          border-left-color: #FF691E; }
+    div.input_form > form > .submit_container {
+      width: 100px;
+      height: 30px;
+      background-color: #FF691E;
+      position: absolute;
+      float: right;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px;
+      bottom: 0px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      cursor: pointer;
+      border-radius: 2px;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
+      div.input_form > form > .submit_container:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+      div.input_form > form > .submit_container > label > .submit_button {
+        color: white;
+        line-height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+        float: left;
+        height: 30px;
+        width: 100%;
+        color: white;
+        font-weight: 400;
+        -webkit-user-select: none;
+        /* Chrome/Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* IE10+ */
+        /* Rules below not implemented in browsers yet */
+        -o-user-select: none;
+        user-select: none;
+        cursor: default;
+        cursor: pointer; }
+
+/*# sourceMappingURL=search.css.map */

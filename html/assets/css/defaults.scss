@@ -1,0 +1,52 @@
+body{
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	overflow: hidden;
+}
+
+.title{
+	height: 100px;
+	// width: auto;
+	margin-top: 20px;
+	line-height: 100px;
+	font-size: 100px;
+	vertical-align: middle;
+	// text-align: center;
+	padding-left: 30px;
+	font-weight: 400;
+	color: $color-orange;
+	
+	//{ ** INCLUDES
+		@include notSelectable();
+	//} ** END INCLUDES
+}
+
+.subtitle{
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	vertical-align: middle;
+	padding-left: 36px;
+	font-weight: 400;
+	color: $color-green;
+	//{ ** INCLUDES
+		@include notSelectable();
+	//} ** END INCLUDES
+}
+
+.container{
+	width: 70%;
+	height: 100%;
+	background-color: white;
+	position: relative;
+	margin: 0 auto;
+}
+
+input[type=file]{
+	display: none;
+}
+
+input[type=submit]{
+	display: none;
+}

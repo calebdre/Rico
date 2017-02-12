@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'defaults';
+
+
+
+
+iframe{
+	height: 100vh;
+	width: 100%;
+	border: none;
+}
+
+body{
+	background-color: $color-green;
+	height: 100vh;
+	overflow: hidden;
+}
+
+

@@ -1,12 +1,11 @@
 from flask import Flask
 from flask import request
-from json import dumps
 from helpers import *
-import textract
 import os
 import re
 import devpost
 import score 
+import zipfile
 
 app = Flask(__name__)
 cwd = os.getcwd()
@@ -20,22 +19,39 @@ def devpost_func():
     return to_json(devpost.get_tags("caleb_dre"))
     
 
-@app.route("/parse", methods=["POST"])
-def parse():
-    scores = {}
-
+@app.route("/score", methods=["POST"])
+def score_route():
     job_description = request.form['job_description']
     path = cwd + "/file"
-    request.files['file'].save(path)
+    f = request.files['file']
+    f.save(path)
 
+    if f.filename.rsplit('.', 1)[1].lower() == "zip":
+        newpath = cwd + "/zip"
+        if not os.path.exists(newpath):
+            os.makedirs(newpath)
+        zip_ref = zipfile.ZipFile(path, 'r')
+        zip_ref.extractall(newpath)
+        zip_ref.close()
+
+        scores = []
+        for f in os.listdir(newpath):
+            fname = cwd + "/zip/" + f
+            if len(fname.split(".")) > 1:
+                scores.append(assemble_resume_score(job_description, fname))
+    else:
+        scores = assemble_resume_score(job_description, path)
+    
+    return to_json(scores)
+
+def assemble_resume_score(job_description, path, obj = {}):
     resume_score, matches = score.score_resume(job_description, path)
-
-    scores["resume"] = {
+    obj["resume"] = {
         "score": resume_score,
         "keywords": ",".join(matches)
     }
-    
-    return to_json(scores)
+
+    return obj
 
 if __name__ == "__main__":
     app.run(debug=True)
