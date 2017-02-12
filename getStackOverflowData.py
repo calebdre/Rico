@@ -2,6 +2,9 @@ import requests
 import simplejson as json
 
 
+questionsDictionary = {}
+answersDictionary = {}
+
 def getUserData(name, location):
     
     baseUrl = "https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&site=stackoverflow"
@@ -38,6 +41,9 @@ def formatName(name):
 
 def getUserTimeline(userId):
     
+
+
+
     userId = str(userId)
     baseUrl = "https://api.stackexchange.com/2.2/users/"
     
@@ -53,29 +59,31 @@ def getUserTimeline(userId):
               
       if "post_type" in i and i['post_type'] == "question":
           
-        print "Question "
-        print i['title']
-        print i['post_id']
-        # if "detail" in i:
-        #   print i['detail']
-        print ""
+        postid = i['post_id']
+        questionsDictionary[postid] = i['title']
 
 
       elif "post_type" in i and i['post_type'] == "answer":
 
-        print "Answer" 
-        print i['title']
-        print i['post_id']
-        # if "detail" in i:
-        #   print i['detail']
-        print ""
+        postid = i['post_id']
+        answersDictionary[postid] = i['title']
 
 
+
+    printDictionary(questionsDictionary)
+    printDictionary(answersDictionary)
+
+
+def printDictionary(dictionary):
+  
+  for question in dictionary:
+    print dictionary[question]
 
     
 
 def main():
  getUserData("Caleb Lewis", "Atlanta, GA, United States")
+
 
 
 main()
