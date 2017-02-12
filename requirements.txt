@@ -2,3 +2,4 @@ nltk
 requests
 textract
 pypdf2
+pyquery
