@@ -1,7 +1,10 @@
 from nltk.corpus import stopwords
 import PyPDF2
+import fb
+import devpost 
 
 def score_resume(job_description, resume_path):
+    obj = {}
     stop_words = stopwords.words("english")
     pdfFileObj = open(resume_path, 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
@@ -16,6 +19,19 @@ def score_resume(job_description, resume_path):
     stripped_job_description = [word.lower().strip() for word in job_description.split() if word not in stop_words]
     stripped_resume = [word.lower().strip() for word in resume.split() if word not in stop_words]
 
+    usernames = fb.usernames()
+    username = list(set(usernames) & set(stripped_resume))
+    if len(username) > 0:
+        tag = devpost.get_tags(username)
+        tag_insct = list(set(stripped_resume) & set(tag))
+        tag_score = len(tag_insct)  / len(stripped_resume)
+        tag_score_adjusted = tag_score + (tag_score * .25)
+        obj["devpost"] = {
+            "score": tag_score_adjusted,
+            "keywords": tag_insct
+        }
+
+
     matches = [word for word in stripped_job_description if word in stripped_resume]
     matches = list(set(matches))
     matches_count = len(matches)
@@ -25,4 +41,11 @@ def score_resume(job_description, resume_path):
     matches_count_adjusted = matches_count + (matches_count * .25) 
     resume_score = matches_count_adjusted / len(stripped_job_description)
 
-    return  resume_score, matches
+    
+
+    obj["resume"] = {
+        "score": resume_score,
+        "keywords": ",".join(matches)
+    }
+
+    return  obj
