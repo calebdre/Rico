@@ -6,5 +6,18 @@ def score(tags={'listing_tags':[], 'candidate_tags':[]}, ghusername='arshbot'):
 	return j+c
 
 
-tags = {'listing_tags':['Swift', 'Python', 'Java'], 'candidate_tags':['Swift', 'Python', 'perl', 'shot']}
+tags = {'listing_tags':['Swift',
+ 						'Python',
+ 						'Java',
+ 						'Perl',
+ 						'Objective C',
+ 						'PHP',
+ 						'Cobalt'],
+ 		'candidate_tags':['Swift',
+ 						'Python',
+ 						'Java',
+ 						'Perl',
+ 						'Objective C',
+ 						'Javascript',
+ 						'Cobalt']}
 print(score(tags, 'youngvz'))
