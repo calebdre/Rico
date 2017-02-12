@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/css/search.css">
+	<title>Search</title>
+</head>
+<body>
+	<div class="title">RICO!</div>
+	<div class="subtitle">Candidate Selection Made Easy</div>
+	<div class="logo"></div>
+	<div class="input_form">
+		<form action="results.html" method="post" enctype="multipart/form-data">
+			<textarea class="input_text" type="textarea" name="job_description" placeholder="Paste job description here"></textarea>
+			
+			<input class="input_file" type="file" name="file" id="resume">
+
+			
+				<div class="resume_container">
+					<div class="scale_container">Scale<input type="text" name="scale" id="scale" placeholder="100 = Intern, 200 = Senior"></div>
+
+					<label for="resume">
+						<div class="input_resume">Browse</div>
+					</label>
+				</div>
+			<!-- end file input -->
+
+			<input class="input_submit" type="submit" name="submit" id="submit" value="RICO!">
+				<div class="submit_container">
+					<label for="submit">
+						<div class="submit_button">R&thinsp;I&thinsp;C&thinsp;O&thinsp;!</div>
+					</label>
+				</div>
+			<!-- end submit input -->
+		</form>
+	</div>
+</body>
+</html>

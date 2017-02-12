@@ -1,0 +1,123 @@
+/////////////////////////////////////////// SET FONT ///////////////////////////////////////////
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700');
+$font-global: 'Roboto', sans-serif;
+*{font-family: $font-global;}
+/////////////////////////////////////////// END SET FONT ///////////////////////////////////////////
+
+/////////////////////////////////////////// COLORS ///////////////////////////////////////////
+
+$color-green: #10705C;
+$color-orange: #FF691E;
+$color-light-grey: #EEEEEE;
+/////////////////////////////////////////// END COLORS ///////////////////////////////////////////
+
+/////////////////////////////////////////// MIXINS ///////////////////////////////////////////
+
+@mixin quickTransition($attribute){
+    -moz-transition: $attribute .2s ease;
+    -o-transition: $attribute .2s ease;
+    -webkit-transition: $attribute .2s ease;
+    -ms-transition: $attribute .2s ease;
+    transition: $attribute .2s ease;
+}
+
+@mixin quickInTransition($attribute){
+    -moz-transition: $attribute .2s ease-out;
+    -o-transition: $attribute .2s ease-out;
+    -webkit-transition: $attribute .2s ease-out;
+    -ms-transition: $attribute .2s ease-out;
+    transition: $attribute .2s ease-out;
+}
+
+@mixin quickOutTransition($attribute){
+    -moz-transition: $attribute .2s ease-in;
+    -o-transition: $attribute .2s ease-in;
+    -webkit-transition: $attribute .2s ease-in;
+    -ms-transition: $attribute .2s ease-in;
+    transition: $attribute .2s ease-in;
+}
+
+@mixin transition($attribute, $time, $delay){
+    -moz-transition: $attribute $time ease-out;
+    -o-transition: $attribute $time ease-out;
+    -webkit-transition: $attribute $time ease-out;
+    -ms-transition: $attribute $time ease-out;
+    transition: $attribute $time ease-out; 
+    -webkit-transition-delay: $delay;
+    transition-delay: $delay;
+}
+
+@mixin noTransition(){
+    -moz-transition: initial;
+    -o-transition: initial;
+    -webkit-transition: initial;
+    -ms-transition: initial;
+    transition: initial;
+}
+
+@mixin rotate($value){
+    transform: rotate($value + deg);
+    -ms-transform: rotate($value + deg);
+    -webkit-transform: rotate($value + deg);
+    -moz-transform: rotate($value + deg);
+    -o-transform: rotate($value + deg);
+}
+
+@mixin freezeHeight(){
+	-moz-transition: height 999999999999s ease-in !important;
+    -o-transition: height 999999999999s ease-in !important;
+    -webkit-transition: height 999999999999s ease-in !important;
+    transition: height 999999999999s ease-in !important;
+    -ms-transition: height 999999999999s ease-in !important;
+}
+
+@mixin noDecoration(){
+    &:visted{
+        outline: none;
+        text-decoration: none;
+        color: inherit;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@mixin noList(){
+    list-style: none;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+@mixin notSelectable(){
+    -webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+    cursor: default;
+}
+
+@mixin selectable(){
+    -webkit-user-select: initial; /* Chrome/Safari */        
+	-moz-user-select: initial; /* Firefox */
+	-ms-user-select: initial; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: initial;
+	user-select: initial;
+    cursor: initial;
+}
+
+@mixin fullHeight{
+	min-height: 100vh;
+	&.isMobile{
+		min-height: calc(100vh + 60px);
+		@include freezeHeight();
+	}
+}
+/////////////////////////////////////////// END MIXINS ///////////////////////////////////////////
