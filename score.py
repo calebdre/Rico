@@ -2,6 +2,7 @@ from nltk.corpus import stopwords
 import PyPDF2
 import fb
 import devpost 
+import rico
 
 def score_resume(job_description, resume_path):
     obj = {}
@@ -18,6 +19,9 @@ def score_resume(job_description, resume_path):
 
     stripped_job_description = [word.lower().strip() for word in job_description.split() if word not in stop_words]
     stripped_resume = [word.lower().strip() for word in resume.split() if word not in stop_words]
+    
+    name = " ".join(stripped_resume[0:2])
+
 
     usernames = fb.usernames()
     username = list(set(usernames) & set(stripped_resume))
@@ -39,9 +43,10 @@ def score_resume(job_description, resume_path):
 	# this comes from the fact that not all terms in matches are relevent,
 	# so we do this to attempt to correct. This is probably extremely wrong.
     matches_count_adjusted = matches_count + (matches_count * .25) 
-    resume_score = matches_count_adjusted / len(stripped_job_description)
-
-    
+    if matches_count_adjusted > 0:
+        resume_score = matches_count_adjusted / len(stripped_job_description)
+    else:
+        resume_score = 0;
 
     obj["resume"] = {
         "score": resume_score,
