@@ -6,7 +6,7 @@ fork_score = 0
 star_score = 0
 commit_score = 0
 
-def getgitinfo(username='arshbot'):
+def getgitscore(username='arshbot'):
     get_user_repos(username)
     #print list_of_repos
     get_num_of_github_commits(username)
