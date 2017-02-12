@@ -1,4 +1,5 @@
 from datetime import timedelta
+from flask import Flask, request, send_from_directory
 from flask import make_response, request, current_app
 from flask_cors import CORS, cross_origin
 from functools import update_wrapper
@@ -19,9 +20,11 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 cwd = os.getcwd()
 
+app = Flask(__name__, static_url_path='')
+
 @app.route("/")
 def index():
-    pass
+    return app.send_static_file('index.html')
 
 @app.route("/devpost")
 @cross_origin()
@@ -46,6 +49,11 @@ def upload_resume():
     f.save(path)
 
     df = ResumeChecker.create_resume_df(cwd)
+    rico.score()
+    # github score
+    # SO score
+    # resume competance
+    # rico score
 
     fb.register_user(username, location)
 

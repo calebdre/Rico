@@ -1,10 +1,13 @@
 jobmatch = __import__('jobmatch')
-competency = __import__('competency')
+github_score = __import__('getgithubscore')
+so_score = __import__('stackovflodata')
 
 def score(tags={'listing_tags':[], 'candidate_tags':[]}, ghusername='arshbot', name='Harsha Goli', location='Atlanta, GA, United States'):
 	j = jobmatch.score(tags['listing_tags'], tags['candidate_tags'])
-	c = competency.score(ghusername, name, location)
-	return j+c
+	g = github_score.final_score(ghusername)
+	s = so_score.final_score(name, location)
+	return j+g+s
+
 
 # tags = {'listing_tags':['Swift', 'Python', 'Java'], 'candidate_tags':['Swift', 'Python', 'perl', 'shot']}
-# print(score(tags, 'youngvz', 'Viraj Shaw', 'Atlanta, GA, United States'))
+# print(score(tags, 'youngvz', 'Viraj Shaw', 'Atlanta, GA, United States'))5683e0607b68f333462192e71f
