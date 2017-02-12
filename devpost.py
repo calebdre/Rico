@@ -2,6 +2,8 @@ from pyquery import PyQuery as pq
 from helpers import *
 
 def get_tags(username):
+	if username is None:
+		return None
 	d = pq(url='https://devpost.com/' + username)
 	tags = d(".cp-tag.recognized-tag")
 	keywords = [tag.text_content() for tag in tags]

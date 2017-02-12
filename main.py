@@ -36,8 +36,7 @@ def devpost_func():
 @cross_origin()
 def register_github():
     username = request.form['username']
-    location = request.form['location']
-    fb.register_user(username, location)
+    fb.register_user(username)
     return success_message("registered yay")
 
 @app.route("/upload_resume")
