@@ -3,6 +3,7 @@ from requests.auth import HTTPBasicAuth
 
 list_of_repos = []
 fork_score, star_score, commit_score = (0,)*3
+#FUCK YOU CALEB
 
 def final_score(username='arshbot'):
     raw_score = compile_raw_gitscore(username)

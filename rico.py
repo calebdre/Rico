@@ -9,5 +9,6 @@ def score(tags={'listing_tags':[], 'candidate_tags':[]}, ghusername='arshbot', n
 	return [job_match_score, git_hub_score, s_o_score]
 
 
+
 # tags = {'listing_tags':['Swift', 'Python', 'Java'], 'candidate_tags':['Swift', 'Python', 'perl', 'shot']}
 # print(score(tags, 'youngvz', 'Viraj Shaw', 'Atlanta, GA, United States'))5683e0607b68f333462192e71f
